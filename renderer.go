@@ -6,7 +6,7 @@ import (
 
 	"github.com/charmbracelet/huh"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/choice404/bobarista/pkg/bobarista/internal"
+	"github.com/choice404/bobarista/internal"
 )
 
 // Renderer handles the visual presentation of the Bobarista form flow.
