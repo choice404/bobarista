@@ -8,20 +8,20 @@
 
 Bobarista is a powerful, flexible form flow framework built on top of [Charm's Bubble Tea](https://github.com/charmbracelet/bubbletea) and [Huh](https://github.com/charmbracelet/huh). Create beautiful, interactive multi-step terminal forms with conditional logic, custom navigation, and delightful theming - all with a fluent, easy-to-use API.
 
-## ✨ Features
+## Features
 
-- 🎯 **Sequential Forms** - Chain multiple forms together seamlessly
-- 🔀 **Conditional Logic** - Skip forms based on user input
-- 🧭 **Custom Navigation** - Control form flow with custom logic
-- 💾 **Value Persistence** - Automatic data management across forms
-- 🎨 **Beautiful Themes** - 7 built-in color schemes + custom themes
-- 🐛 **Debug Mode** - Visual debugging with state inspection
-- 📝 **Comprehensive Logging** - Built-in logging for troubleshooting
-- ⚡ **Error Handling** - Robust error management with specific error types
-- 🎉 **Completion Callbacks** - Handle form completion with custom logic
-- 📱 **Responsive** - Adapts to terminal size with scrolling support
+- **Sequential Forms** - Chain multiple forms together seamlessly
+-  **Conditional Logic** - Skip forms based on user input
+-  **Custom Navigation** - Control form flow with custom logic
+-  **Value Persistence** - Automatic data management across forms
+-  **Beautiful Themes** - 7 built-in color schemes + custom themes
+-  **Debug Mode** - Visual debugging with state inspection
+-  **Comprehensive Logging** - Built-in logging for troubleshooting
+-  **Error Handling** - Robust error management with specific error types
+-  **Completion Callbacks** - Handle form completion with custom logic
+-  **Responsive** - Adapts to terminal size with scrolling support
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 go get github.com/choice404/bobarista
@@ -67,7 +67,7 @@ func main() {
                 return nil
             })).
         OnComplete(func(app *bobarista.Bobarista) error {
-            fmt.Printf("🎉 Welcome %s! We'll contact you at %s\n", name, email)
+            fmt.Printf("Welcome %s! We'll contact you at %s\n", name, email)
             return nil
         }).
         Build()
@@ -78,19 +78,19 @@ func main() {
 }
 ```
 
-## 🎨 Beautiful Themes
+##  Beautiful Themes
 
 Bobarista comes with 7 stunning built-in themes:
 
 ```go
 app := bobarista.New("Themed App").
-    WithColorScheme("ocean").    // 🌊 Ocean blue
-    // WithColorScheme("forest").   // 🌲 Forest green  
-    // WithColorScheme("sunset").   // 🌅 Sunset orange
-    // WithColorScheme("ubuntu").   // 🟠 Ubuntu orange
-    // WithColorScheme("dark").     // 🌙 Dark mode
-    // WithColorScheme("monochrome"). // ⚫ Black & white
-    // WithColorScheme("default").  // 🎯 Default cyan
+    WithColorScheme("ocean").    // Ocean blue
+    // WithColorScheme("forest").   // Forest green  
+    // WithColorScheme("sunset").   // Sunset orange
+    // WithColorScheme("ubuntu").   // Ubuntu orange
+    // WithColorScheme("dark").     // Dark mode
+    // WithColorScheme("monochrome"). // Black & white
+    // WithColorScheme("default").  // Default cyan
     Build()
 ```
 
@@ -103,14 +103,14 @@ bobarista.RegisterColorScheme("neon", customTheme)
 app := bobarista.New("Neon App").WithColorScheme("neon")
 ```
 
-## 🔀 Conditional Forms & Smart Navigation
+## Conditional Forms & Smart Navigation
 
 Create dynamic form flows that adapt based on user input:
 
 ```go
 var userType, companyName, personalDetails string
 
-app := bobarista.New("🎯 Smart Registration").
+app := bobarista.New("Smart Registration").
     AddForm(bobarista.NewForm("type", "User Type").
         WithGenerator(func(current *bobarista.FormValues, global *bobarista.FormValues) *huh.Form {
             return huh.NewForm(
@@ -118,8 +118,8 @@ app := bobarista.New("🎯 Smart Registration").
                     huh.NewSelect[string]().
                         Title("Are you registering as...").
                         Options(
-                            huh.NewOption("🏢 Company", "company"),
-                            huh.NewOption("👤 Individual", "individual"),
+                            huh.NewOption("Company", "company"),
+                            huh.NewOption("Individual", "individual"),
                         ).
                         Value(&userType),
                 ),
@@ -147,7 +147,7 @@ app := bobarista.New("🎯 Smart Registration").
     Build()
 ```
 
-## 🐛 Debug Mode
+## Debug Mode
 
 Enable debug mode to see what's happening under the hood:
 
@@ -165,14 +165,14 @@ The debug panel shows:
 - Form completion status
 - Real-time error information
 
-## 🎯 Advanced Examples
+## Advanced Examples
 
 ### Multi-Step Project Setup Wizard
 
 ```go
 var projectType, language, framework, features string
 
-wizard := bobarista.New("🚀 Project Setup Wizard").
+wizard := bobarista.New("Project Setup Wizard").
     WithColorScheme("forest").
     WithMaxWidth(100).
     AddForm(bobarista.NewForm("project", "Project Type").
@@ -182,7 +182,7 @@ wizard := bobarista.New("🚀 Project Setup Wizard").
                     huh.NewSelect[string]().
                         Title("What type of project?").
                         Options(
-                            huh.NewOption("🌐 Web Application", "web"),
+                            huh.NewOption("Web Application", "web"),
                             huh.NewOption("⚡ CLI Tool", "cli"),
                             huh.NewOption("📱 Mobile App", "mobile"),
                         ).
@@ -197,15 +197,15 @@ wizard := bobarista.New("🚀 Project Setup Wizard").
             // Dynamic options based on project type
             if projectType == "web" {
                 options = []huh.Option[string]{
-                    huh.NewOption("🐹 Go", "go"),
-                    huh.NewOption("🐍 Python", "python"),
-                    huh.NewOption("⚡ Node.js", "nodejs"),
+                    huh.NewOption("Go", "go"),
+                    huh.NewOption("Python", "python"),
+                    huh.NewOption("Node.js", "nodejs"),
                 }
             } else {
                 options = []huh.Option[string]{
-                    huh.NewOption("🐹 Go", "go"),
-                    huh.NewOption("🦀 Rust", "rust"),
-                    huh.NewOption("⚡ C++", "cpp"),
+                    huh.NewOption("Go", "go"),
+                    huh.NewOption("Rust", "rust"),
+                    huh.NewOption("C++", "cpp"),
                 }
             }
             
@@ -219,7 +219,7 @@ wizard := bobarista.New("🚀 Project Setup Wizard").
             )
         })).
     OnComplete(func(wizard *bobarista.Bobarista) error {
-        fmt.Printf("🎉 Project created: %s %s application!\n", language, projectType)
+        fmt.Printf("Project created: %s %s application!\n", language, projectType)
         return nil
     }).
     Build()
@@ -228,7 +228,7 @@ wizard := bobarista.New("🚀 Project Setup Wizard").
 ### Custom Navigation Logic
 
 ```go
-app := bobarista.New("🧭 Custom Navigation").
+app := bobarista.New("Custom Navigation").
     AddForm(bobarista.NewForm("start", "Getting Started").
         WithNavigation(func(current *bobarista.FormData) int {
             // Custom navigation logic
@@ -243,7 +243,7 @@ app := bobarista.New("🧭 Custom Navigation").
     Build()
 ```
 
-## 📊 Form Value Management
+## Form Value Management
 
 Bobarista automatically manages form values with a powerful and flexible system:
 
@@ -278,12 +278,12 @@ Bobarista automatically manages form values with a powerful and flexible system:
 })
 ```
 
-## 🎉 Completion & Display Control
+## Completion & Display Control
 
 Customize what happens when your form flow completes:
 
 ```go
-app := bobarista.New("📋 Survey Complete").
+app := bobarista.New("Survey Complete").
     WithDisplayKeys([]string{"name", "email", "rating"}). // Only show these in summary
     AddForm(...).
     OnComplete(func(app *bobarista.Bobarista) error {
@@ -292,18 +292,18 @@ app := bobarista.New("📋 Survey Complete").
     }).
     WithDisplayCallback(func() string {
         return `
-🎉 Thank you for your feedback!
+Thank you for your feedback!
 
 Your responses have been saved and our team will review them shortly.
 You should receive a confirmation email within the next few minutes.
 
-Have a great day! ✨
+Have a great day!
         `
     }).
     Build()
 ```
 
-## 🛠️ Error Handling
+## Error Handling
 
 Bobarista provides comprehensive error handling with specific error types:
 
@@ -311,15 +311,15 @@ Bobarista provides comprehensive error handling with specific error types:
 if err := app.Run(); err != nil {
     switch e := err.(type) {
     case bobarista.CupSleeveError:
-        fmt.Printf("❌ Form error in '%s': %v\n", e.FormID, e.Err)
+        fmt.Printf("Form error in '%s': %v\n", e.FormID, e.Err)
     case bobarista.ValidationError:
-        fmt.Printf("⚠️  Validation error in form '%s', field '%s': %v\n", 
+        fmt.Printf("Validation error in form '%s', field '%s': %v\n", 
             e.FormID, e.Field, e.Err)
     case bobarista.NavigationError:
-        fmt.Printf("🧭 Navigation error from '%s' to '%s': %v\n", 
+        fmt.Printf("Navigation error from '%s' to '%s': %v\n", 
             e.FromFormID, e.ToFormID, e.Err)
     default:
-        fmt.Printf("💥 Unexpected error: %v\n", err)
+        fmt.Printf("Unexpected error: %v\n", err)
     }
 }
 ```
@@ -340,7 +340,7 @@ bobarista.LogDebug("Debug information")
 bobarista.LogWarning("Warning message")
 ```
 
-## 🏗️ Builder API Reference
+## Builder API Reference
 
 The fluent builder API makes it easy to construct complex form flows:
 
@@ -380,24 +380,24 @@ app := bobarista.New("My App").                    // Create new builder
     Build()
 ```
 
-## 🎯 Common Use Cases
+## Common Use Cases
 
-- **🔐 User Registration & Onboarding** - Multi-step user signup flows
-- **⚙️ Configuration Wizards** - Application setup and configuration
-- **📋 Surveys & Forms** - Data collection with conditional questions  
-- **🚀 Project Generators** - CLI tools for scaffolding projects
-- **🔧 Installation Wizards** - Software installation and setup
-- **📊 Data Entry Applications** - Complex data input workflows
-- **🎮 Interactive CLI Tools** - User-friendly command-line interfaces
+- **User Registration & Onboarding** - Multi-step user signup flows
+- **Configuration Wizards** - Application setup and configuration
+- **Surveys & Forms** - Data collection with conditional questions  
+- **Project Generators** - CLI tools for scaffolding projects
+- **Installation Wizards** - Software installation and setup
+- **Data Entry Applications** - Complex data input workflows
+- **Interactive CLI Tools** - User-friendly command-line interfaces
 
-## 📚 Documentation
+## Documentation
 
-- [📖 Getting Started Guide](getting-started.md) - Detailed tutorial and concepts
-- [📋 API Reference](api-reference.md) - Complete API documentation  
-- [💡 Examples](examples.md) - More complex examples and patterns
-- [🎨 Theming Guide](api-reference.md#color-schemes) - Color schemes and customization
+- [Getting Started Guide](getting-started.md) - Detailed tutorial and concepts
+- [API Reference](api-reference.md) - Complete API documentation  
+- [Examples](examples.md) - More complex examples and patterns
+- [Theming Guide](api-reference.md#color-schemes) - Color schemes and customization
 
-## 🤝 Contributing
+## Contributing
 
 We love contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
@@ -407,16 +407,16 @@ We love contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for 
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Charm](https://charm.sh/) for the amazing Bubble Tea and Huh libraries
 - The Go community for inspiration and feedback
 - All contributors who help make Bobarista better
 
-## ⭐ Star History
+## Star History
 
 If you find Bobarista useful, please consider giving it a star! ⭐
